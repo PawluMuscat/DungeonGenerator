@@ -39,7 +39,7 @@ public class GenerateRoom : MonoBehaviour {
         {
             if (roomsSpawned < roomsToSpawn)
             {
-                direction chosenDir = ChooseDirection();
+                direction chosenDir = ChooseDirection(); //Choose the direction to branch.
                 
                 if (chosenDir == direction.North)
                 {
@@ -49,7 +49,7 @@ public class GenerateRoom : MonoBehaviour {
                         GameObject spawnedRoom = CreateRoom();
                         spawnedRoom.GetComponent<GenerateRoom>().previousDir = direction.North;
                     }
-                    spawnCoordinates = transform.position;
+                    spawnCoordinates = transform.position; //Resets the spawn coordinates for the next itteration.
                 }
                 if (chosenDir == direction.South)
                 {
@@ -85,6 +85,7 @@ public class GenerateRoom : MonoBehaviour {
         }
     }
 
+    //I Created this to replace repetative code and increase readability.
     GameObject CreateRoom()
     {
         GameObject spawnedRoom = Instantiate(roomGeneration.room, spawnCoordinates, Quaternion.identity, roomGeneration.roomHolder.transform);
@@ -96,6 +97,8 @@ public class GenerateRoom : MonoBehaviour {
         return spawnedRoom;
     }
 
+    //This chooses what direction the next room will branch to, this is used to make it more likely to branch out in the same direction as the previous room
+    //this is to stop the dungeon from looking clunky and being a box.
     direction ChooseDirection()
     {
         int rng = Random.Range(0, (roomGeneration.maxRooms * 2));
@@ -111,10 +114,11 @@ public class GenerateRoom : MonoBehaviour {
             return previousDir;
     }
 
+    //This choses the amount of rooms to be branched from a single room.
     int AmountToSpawn()
     {
         int rng;
-
+        //if its the first room make sure it spawns more than 1 room to make it more spread out.
         if (roomGeneration.roomsCreated == 1)
             rng = Random.Range(5, 11);
 
