@@ -228,8 +228,8 @@ GameObject:
   - component: {fileID: 1907543334}
   - component: {fileID: 1907543332}
   m_Layer: 0
-  m_Name: RoomGeneration
-  m_TagString: Untagged
+  m_Name: GenerationManager
+  m_TagString: GenerationManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,7 +247,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   room: {fileID: 1004172739037284, guid: ed88945ce76bb334bad7c430315da53d, type: 2}
   roomHolder: {fileID: 202864048}
-  maxRooms: 50
+  maxRooms: 7
+  roomsCreated: 0
   roomHeight: 10
   roomWidth: 18
   placedRoomsCoords: []

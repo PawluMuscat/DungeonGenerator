@@ -6,7 +6,7 @@ public class RoomGeneration : MonoBehaviour {
 
     public GameObject room, roomHolder;
     public int maxRooms;
-    int roomsCreated;
+    public int roomsCreated;
     public float roomHeight, roomWidth;
     public List<Vector2> placedRoomsCoords;
     Vector2 spawnCoordinates;
@@ -15,22 +15,20 @@ public class RoomGeneration : MonoBehaviour {
 
 	void Start ()
     {
-        Instantiate(room,transform.position,Quaternion.identity,roomHolder.transform); //Creates the first room.
-        
-        roomsCreated = 1;
         spawnCoordinates = transform.position;
+        InstantiateRoom();
         canGenerate = true;
 	}
 
 	void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GenerateRooms();
-        }
+       // if (Input.GetKeyDown(KeyCode.Space))
+       // {
+        //    GenerateRooms();
+       // }
 	}
 
-    void GenerateRooms()
+    public void GenerateRooms()
     {
         if (canGenerate == true)
         {
@@ -88,6 +86,18 @@ public class RoomGeneration : MonoBehaviour {
         }
     }
 
+    void InstantiateRoom()
+    {
+        Instantiate(room, spawnCoordinates, Quaternion.identity, roomHolder.transform);
+        placedRoomsCoords.Add(spawnCoordinates); //adds the coordinates of the room to the list
+        roomsCreated++;
+    }
+    void InstantiateRoom(Vector2 roomCoordinates)
+    {
+        Instantiate(room, roomCoordinates, Quaternion.identity, roomHolder.transform);
+        placedRoomsCoords.Add(roomCoordinates); //adds the coordinates of the room to the list
+        roomsCreated++;
+    }
 
      // How I was previously making it not spawn a room ontop of another room. Using directional bools
     /*
