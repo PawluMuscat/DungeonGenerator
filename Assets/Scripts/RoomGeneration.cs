@@ -20,16 +20,9 @@ public class RoomGeneration : MonoBehaviour {
         canGenerate = true;
 	}
 
-	void Update ()
-    {
-       // if (Input.GetKeyDown(KeyCode.Space))
-       // {
-        //    GenerateRooms();
-       // }
-	}
-
     public void GenerateRooms()
     {
+        //This is how I was originally generating my rooms but this would cause the dungeon to go in a single direction and didn't allow for much variety.
         if (canGenerate == true)
         {
             do
@@ -90,12 +83,6 @@ public class RoomGeneration : MonoBehaviour {
     {
         Instantiate(room, spawnCoordinates, Quaternion.identity, roomHolder.transform);
         placedRoomsCoords.Add(spawnCoordinates); //adds the coordinates of the room to the list
-        roomsCreated++;
-    }
-    void InstantiateRoom(Vector2 roomCoordinates)
-    {
-        Instantiate(room, roomCoordinates, Quaternion.identity, roomHolder.transform);
-        placedRoomsCoords.Add(roomCoordinates); //adds the coordinates of the room to the list
         roomsCreated++;
     }
 
