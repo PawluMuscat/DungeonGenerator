@@ -7,7 +7,7 @@ public class RoomGeneration : MonoBehaviour {
     public GameObject room, roomHolder;
     public int maxRooms;
     public int roomsCreated;
-    public int roomHeight, roomWidth;
+    public float roomHeight, roomWidth;
     public List<Vector2> placedRoomsCoords;
     Vector2 spawnCoordinates;
 
@@ -15,12 +15,12 @@ public class RoomGeneration : MonoBehaviour {
     public bool fullyGenerated;
 
 	void Start ()
-    {
+    { 
         fullyGenerated = false;
         spawnCoordinates = transform.position;
         InstantiateRoom();
         canGenerate = true;
-	}
+    }
 
     public void GenerateRooms()
     {

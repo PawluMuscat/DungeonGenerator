@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\GenerateRoom.cs" />
+    <Compile Include="Assets\Scripts\MoveThroughDoor.cs" />
     <Compile Include="Assets\Scripts\RoomGeneration.cs" />
     <Compile Include="Assets\Scripts\RoomSpawner.cs" />
     <Compile Include="Assets\Scripts\RoomTemplates.cs" />

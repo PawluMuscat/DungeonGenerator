@@ -6,15 +6,21 @@ public class SpawnDoors : MonoBehaviour {
 
     RoomGeneration roomGeneration;
     List<Vector2> roomsCoords;
-    int roomHeight, roomWidth;
+    float roomHeight, roomWidth;
+    float doorHeight, doorWidth;
+    SpriteRenderer doorSR;
     public GameObject topDoor, rightDoor, leftDoor, bottomDoor;
     bool topChecked, rightChecked, leftChecked, bottomChecked, allChecked;
 
     private void Start()
     {
+        doorSR = topDoor.GetComponent<SpriteRenderer>();
         roomGeneration = gameObject.GetComponent<RoomGeneration>();
         roomHeight = roomGeneration.roomHeight;
         roomWidth = roomGeneration.roomWidth;
+        doorHeight = doorSR.bounds.size.y;
+        doorWidth = doorSR.bounds.size.x;
+
     }
 
     private void Update()
@@ -38,7 +44,7 @@ public class SpawnDoors : MonoBehaviour {
             if (CheckAboveRoom(roomCoord) && !topChecked)
             {
                 Vector2 tempRoomCoord = roomCoord;
-                tempRoomCoord.y += (roomHeight / 2)-1;
+                tempRoomCoord.y += (roomHeight / 2) - (doorHeight / 2);
                 GameObject door = Instantiate(topDoor,gameObject.transform);
                 door.transform.position = tempRoomCoord;
                 topChecked = true;
@@ -46,7 +52,7 @@ public class SpawnDoors : MonoBehaviour {
             if (CheckBelowRoom(roomCoord) && !bottomChecked)
             {
                 Vector2 tempRoomCoord = roomCoord;
-                tempRoomCoord.y -= (roomHeight / 2) -1 ;
+                tempRoomCoord.y -= (roomHeight / 2) - (doorHeight / 2);
                 GameObject door = Instantiate(bottomDoor, gameObject.transform);
                 door.transform.position = tempRoomCoord;
                 bottomChecked = true;
@@ -54,7 +60,7 @@ public class SpawnDoors : MonoBehaviour {
             if(CheckLeftOfRoom(roomCoord) && !leftChecked)
             {
                 Vector2 tempRoomCoord = roomCoord;
-                tempRoomCoord.x -= (roomWidth / 2) -1;
+                tempRoomCoord.x -= (roomWidth / 2) - (doorWidth / 2);
                 GameObject door = Instantiate(leftDoor, gameObject.transform);
                 door.transform.position = tempRoomCoord;
                 leftChecked = true;
@@ -62,7 +68,7 @@ public class SpawnDoors : MonoBehaviour {
             if(CheckRightOfRoom(roomCoord) && !rightChecked)
             {
                 Vector2 tempRoomCoord = roomCoord;
-                tempRoomCoord.x += (roomWidth/2) - 1;
+                tempRoomCoord.x += (roomWidth / 2) - (doorWidth / 2);
                 GameObject door = Instantiate(rightDoor, gameObject.transform);
                 door.transform.position = tempRoomCoord;
                 rightChecked = true;
