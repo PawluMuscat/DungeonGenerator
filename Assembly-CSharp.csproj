@@ -64,7 +64,6 @@
     <Compile Include="Assets\Scripts\GenerateRoom.cs" />
     <Compile Include="Assets\Scripts\RoomGeneration.cs" />
     <Compile Include="Assets\Scripts\RoomSpawner.cs" />
-    <Compile Include="Assets\Scripts\RoomTemplates.cs" />
     <Compile Include="Assets\Scripts\SpawnDoors.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/pawlu/Documents/GitHub/DungeonGenerator/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

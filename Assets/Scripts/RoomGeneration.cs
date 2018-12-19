@@ -12,9 +12,11 @@ public class RoomGeneration : MonoBehaviour {
     Vector2 spawnCoordinates;
 
     bool canGenerate;
+    public bool fullyGenerated;
 
 	void Start ()
     {
+        fullyGenerated = false;
         spawnCoordinates = transform.position;
         InstantiateRoom();
         canGenerate = true;

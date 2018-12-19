@@ -83,6 +83,10 @@ public class GenerateRoom : MonoBehaviour {
                 }
             }
         }
+        else
+        {
+            roomGeneration.fullyGenerated = true;
+        }
     }
 
     //I Created this to replace repetative code and increase readability.
