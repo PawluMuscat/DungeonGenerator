@@ -227,6 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1907543334}
   - component: {fileID: 1907543332}
+  - component: {fileID: 1907543333}
   m_Layer: 0
   m_Name: GenerationManager
   m_TagString: GenerationManager
@@ -252,6 +253,22 @@ MonoBehaviour:
   roomHeight: 10
   roomWidth: 18
   placedRoomsCoords: []
+  fullyGenerated: 0
+--- !u!114 &1907543333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1907543331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f8918b4bd725340ad1d36c3481dd18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topDoor: {fileID: 1082220640281302, guid: a647f8ca5b76bc74d94c93692be04d5c, type: 2}
+  rightDoor: {fileID: 1972358247603274, guid: cc1e60a756ca7fd4ea533df729365b82, type: 2}
+  leftDoor: {fileID: 1883157943656536, guid: 27d1817a9883c874592d846ca6e7691b, type: 2}
+  bottomDoor: {fileID: 1555428267120150, guid: 4093842fd7d60f742b0093ecc270e5ad, type: 2}
 --- !u!4 &1907543334
 Transform:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class RoomGeneration : MonoBehaviour {
     public GameObject room, roomHolder;
     public int maxRooms;
     public int roomsCreated;
-    public float roomHeight, roomWidth;
+    public int roomHeight, roomWidth;
     public List<Vector2> placedRoomsCoords;
     Vector2 spawnCoordinates;
 
