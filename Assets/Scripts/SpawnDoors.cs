@@ -11,6 +11,7 @@ public class SpawnDoors : MonoBehaviour {
     SpriteRenderer doorSR;
     public GameObject topDoor, rightDoor, leftDoor, bottomDoor;
     bool topChecked, rightChecked, leftChecked, bottomChecked, allChecked;
+    public GameObject doorHolder;
 
     private void Start()
     {
@@ -45,7 +46,7 @@ public class SpawnDoors : MonoBehaviour {
             {
                 Vector2 tempRoomCoord = roomCoord;
                 tempRoomCoord.y += (roomHeight / 2) - (doorHeight / 2);
-                GameObject door = Instantiate(topDoor,gameObject.transform);
+                GameObject door = Instantiate(topDoor,doorHolder.transform);
                 door.transform.position = tempRoomCoord;
                 topChecked = true;
             }
@@ -53,7 +54,7 @@ public class SpawnDoors : MonoBehaviour {
             {
                 Vector2 tempRoomCoord = roomCoord;
                 tempRoomCoord.y -= (roomHeight / 2) - (doorHeight / 2);
-                GameObject door = Instantiate(bottomDoor, gameObject.transform);
+                GameObject door = Instantiate(bottomDoor, doorHolder.transform);
                 door.transform.position = tempRoomCoord;
                 bottomChecked = true;
             }
@@ -61,7 +62,7 @@ public class SpawnDoors : MonoBehaviour {
             {
                 Vector2 tempRoomCoord = roomCoord;
                 tempRoomCoord.x -= (roomWidth / 2) - (doorWidth / 2);
-                GameObject door = Instantiate(leftDoor, gameObject.transform);
+                GameObject door = Instantiate(leftDoor, doorHolder.transform);
                 door.transform.position = tempRoomCoord;
                 leftChecked = true;
             }
@@ -69,7 +70,7 @@ public class SpawnDoors : MonoBehaviour {
             {
                 Vector2 tempRoomCoord = roomCoord;
                 tempRoomCoord.x += (roomWidth / 2) - (doorWidth / 2);
-                GameObject door = Instantiate(rightDoor, gameObject.transform);
+                GameObject door = Instantiate(rightDoor, doorHolder.transform);
                 door.transform.position = tempRoomCoord;
                 rightChecked = true;
             }
