@@ -14,6 +14,8 @@ public class GenerateRoom : MonoBehaviour {
         West
     }
 
+    public Dictionary<Vector2, GameObject> roomLocation = new Dictionary<Vector2, GameObject>();
+
     public direction previousDir;
 
     Vector2 spawnCoordinates;
@@ -95,6 +97,7 @@ public class GenerateRoom : MonoBehaviour {
         GameObject spawnedRoom = Instantiate(roomGeneration.room, spawnCoordinates, Quaternion.identity, roomGeneration.roomHolder.transform);
 
         roomGeneration.placedRoomsCoords.Add(spawnCoordinates); //adds the coordinates of the room to the list
+        roomLocation.Add(spawnCoordinates, spawnedRoom);
         roomGeneration.roomsCreated++;
         roomsSpawned++;
 

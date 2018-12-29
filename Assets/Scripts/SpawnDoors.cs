@@ -21,7 +21,6 @@ public class SpawnDoors : MonoBehaviour {
         roomWidth = roomGeneration.roomWidth;
         doorHeight = doorSR.bounds.size.y;
         doorWidth = doorSR.bounds.size.x;
-
     }
 
     private void Update()
