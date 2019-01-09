@@ -15,7 +15,7 @@ public class SpawnDoors : MonoBehaviour {
 
     private void Start()
     {
-        doorSR = topDoor.GetComponent<SpriteRenderer>();
+        doorSR = topDoor.GetComponentInChildren<SpriteRenderer>();
         roomGeneration = gameObject.GetComponent<RoomGeneration>();
         roomHeight = roomGeneration.roomHeight;
         roomWidth = roomGeneration.roomWidth;
@@ -34,6 +34,8 @@ public class SpawnDoors : MonoBehaviour {
 
     void CreateDoors()
     {
+        //Gets the location of each room and checks the list to see if there's a room placed on the coordinates in each of the 4 directions
+        //when a room is found in one of the directions the corrisponding door is placed.
         foreach (Vector2 roomCoord in roomsCoords)
         {
             topChecked = false;

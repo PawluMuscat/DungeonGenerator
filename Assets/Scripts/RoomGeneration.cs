@@ -10,18 +10,36 @@ public class RoomGeneration : MonoBehaviour {
     public float roomHeight, roomWidth;
     public List<Vector2> placedRoomsCoords;
     Vector2 spawnCoordinates;
+    GameObject player;
 
+    bool playerSpawned = false;
     bool canGenerate;
     public bool fullyGenerated;
 
 	void Start ()
-    { 
+    {
         fullyGenerated = false;
         spawnCoordinates = transform.position;
         InstantiateRoom();
         canGenerate = true;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
+    void InstantiateRoom()
+    {
+        Instantiate(room, spawnCoordinates, Quaternion.identity, roomHolder.transform);
+        placedRoomsCoords.Add(spawnCoordinates); //adds the coordinates of the room to the list
+        roomsCreated++;
+    }
+
+    private void Update()
+    {
+        if(!playerSpawned && fullyGenerated)
+        {
+            playerSpawned = true;
+            player.SetActive(true);
+        }
+    }
     public void GenerateRooms()
     {
         //This is how I was originally generating my rooms but this would cause the dungeon to go in a single direction and didn't allow for much variety.
@@ -81,12 +99,7 @@ public class RoomGeneration : MonoBehaviour {
         }
     }
 
-    void InstantiateRoom()
-    {
-        Instantiate(room, spawnCoordinates, Quaternion.identity, roomHolder.transform);
-        placedRoomsCoords.Add(spawnCoordinates); //adds the coordinates of the room to the list
-        roomsCreated++;
-    }
+
 
      // How I was previously making it not spawn a room ontop of another room. Using directional bools
     /*

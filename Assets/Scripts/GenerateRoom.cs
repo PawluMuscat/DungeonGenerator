@@ -17,21 +17,22 @@ public class GenerateRoom : MonoBehaviour {
     public Dictionary<Vector2, GameObject> roomLocation = new Dictionary<Vector2, GameObject>();
 
     public direction previousDir;
+    public bool isLastRoom = false;
 
     Vector2 spawnCoordinates;
-    public int roomsSpawned, roomsToSpawn;
+    public int roomsSpawned, spawnLimit;
 
-	void Start ()
+    void Start ()
     {
         spawnCoordinates = transform.position;
         roomGeneration = GameObject.FindGameObjectWithTag("GenerationManager").GetComponent<RoomGeneration>();
-        roomsToSpawn = AmountToSpawn();
-	}
+        spawnLimit = AmountToSpawn();
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        Invoke("MakeRoom", .5f);
+        Invoke("MakeRoom", .2f);
         
 	}
 
@@ -39,7 +40,7 @@ public class GenerateRoom : MonoBehaviour {
     {
         if (roomGeneration.roomsCreated < roomGeneration.maxRooms)
         {
-            if (roomsSpawned < roomsToSpawn)
+            if (roomsSpawned < spawnLimit)
             {
                 direction chosenDir = ChooseDirection(); //Choose the direction to branch.
                 
@@ -50,6 +51,11 @@ public class GenerateRoom : MonoBehaviour {
                     {
                         GameObject spawnedRoom = CreateRoom();
                         spawnedRoom.GetComponent<GenerateRoom>().previousDir = direction.North;
+                        if(roomGeneration.roomsCreated == roomGeneration.maxRooms)
+                        {
+                            //Marks the last placed room.
+                            spawnedRoom.GetComponent<GenerateRoom>().isLastRoom = true;
+                        }
                     }
                     spawnCoordinates = transform.position; //Resets the spawn coordinates for the next itteration.
                 }
@@ -60,6 +66,11 @@ public class GenerateRoom : MonoBehaviour {
                     {
                         GameObject spawnedRoom = CreateRoom();
                         spawnedRoom.GetComponent<GenerateRoom>().previousDir = direction.South;
+                        if (roomGeneration.roomsCreated == roomGeneration.maxRooms)
+                        {
+                            //Marks the last placed room.
+                            spawnedRoom.GetComponent<GenerateRoom>().isLastRoom = true;
+                        }
                     }
                     spawnCoordinates = transform.position;
                 }
@@ -70,6 +81,11 @@ public class GenerateRoom : MonoBehaviour {
                     {
                         GameObject spawnedRoom = CreateRoom();
                         spawnedRoom.GetComponent<GenerateRoom>().previousDir = direction.East;
+                        if (roomGeneration.roomsCreated == roomGeneration.maxRooms)
+                        {
+                            //Marks the last placed room.
+                            spawnedRoom.GetComponent<GenerateRoom>().isLastRoom = true;
+                        }
                     }
                     spawnCoordinates = transform.position;
                 }
@@ -80,6 +96,11 @@ public class GenerateRoom : MonoBehaviour {
                     {
                         GameObject spawnedRoom = CreateRoom();
                         spawnedRoom.GetComponent<GenerateRoom>().previousDir = direction.West;
+                        if (roomGeneration.roomsCreated == roomGeneration.maxRooms)
+                        {
+                            //Marks the last placed room.
+                            spawnedRoom.GetComponent<GenerateRoom>().isLastRoom = true;
+                        }
                     }
                     spawnCoordinates = transform.position;
                 }
@@ -108,7 +129,13 @@ public class GenerateRoom : MonoBehaviour {
     //this is to stop the dungeon from looking clunky and being a box.
     direction ChooseDirection()
     {
-        int rng = Random.Range(0, (roomGeneration.maxRooms * 2));
+        int rngLimit = roomGeneration.roomsCreated * 2;
+        if (rngLimit < 4)
+            rngLimit = 4;
+        if (rngLimit > 35)
+            rngLimit = 35;
+
+        int rng = Random.Range(0, rngLimit);
         if(rng == 0)
             return direction.North;
         if (rng == 1)

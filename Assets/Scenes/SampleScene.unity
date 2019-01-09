@@ -219,53 +219,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1592478402
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4647597240117582, guid: 3a138ef881913fe4491734ba33d4fd52, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4647597240117582, guid: 3a138ef881913fe4491734ba33d4fd52, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4647597240117582, guid: 3a138ef881913fe4491734ba33d4fd52, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4647597240117582, guid: 3a138ef881913fe4491734ba33d4fd52, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4647597240117582, guid: 3a138ef881913fe4491734ba33d4fd52, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4647597240117582, guid: 3a138ef881913fe4491734ba33d4fd52, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4647597240117582, guid: 3a138ef881913fe4491734ba33d4fd52, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4647597240117582, guid: 3a138ef881913fe4491734ba33d4fd52, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 212793009138492702, guid: 3a138ef881913fe4491734ba33d4fd52,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3a138ef881913fe4491734ba33d4fd52, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1907543331
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,9 +247,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558c9cc67ce69b04487e57729ccd2e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  room: {fileID: 1514390953767144, guid: 3a138ef881913fe4491734ba33d4fd52, type: 2}
+  room: {fileID: 1101933293401812, guid: b8e1c50645001ad47a3d734ca6ee0d79, type: 2}
   roomHolder: {fileID: 202864048}
-  maxRooms: 10
+  maxRooms: 15
   roomsCreated: 0
   roomHeight: 10
   roomWidth: 18
@@ -313,10 +266,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f8918b4bd725340ad1d36c3481dd18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topDoor: {fileID: 1082220640281302, guid: a647f8ca5b76bc74d94c93692be04d5c, type: 2}
-  rightDoor: {fileID: 1972358247603274, guid: cc1e60a756ca7fd4ea533df729365b82, type: 2}
-  leftDoor: {fileID: 1883157943656536, guid: 27d1817a9883c874592d846ca6e7691b, type: 2}
-  bottomDoor: {fileID: 1555428267120150, guid: 4093842fd7d60f742b0093ecc270e5ad, type: 2}
+  topDoor: {fileID: 1458220353859298, guid: d901b60683a0a8149bb3095b4c730154, type: 2}
+  rightDoor: {fileID: 1306999398702478, guid: 31743bca926749440a81111d00ce1c08, type: 2}
+  leftDoor: {fileID: 1761395073627244, guid: d9d3b8512fdfbc14d92be5addadb38da, type: 2}
+  bottomDoor: {fileID: 1344822588756564, guid: b824b4d6eb86aef4f8651bf5dc42e49d, type: 2}
   doorHolder: {fileID: 2059615481}
 --- !u!4 &1907543334
 Transform:
@@ -416,7 +369,7 @@ Transform:
   m_GameObject: {fileID: 1968327085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.25, y: 6.25, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -457,14 +410,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &2059615481
 GameObject:
