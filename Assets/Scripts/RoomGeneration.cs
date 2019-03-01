@@ -20,6 +20,7 @@ public class RoomGeneration : MonoBehaviour {
     {
         fullyGenerated = false;
         spawnCoordinates = transform.position;
+        placedRoomsCoords = new List<Vector2>(maxRooms);
         InstantiateRoom();
         canGenerate = true;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -102,6 +103,7 @@ public class RoomGeneration : MonoBehaviour {
 
 
      // How I was previously making it not spawn a room ontop of another room. Using directional bools
+     //I chose to not use this due to it creating lots of framerate issues as well as giving an undesirable final outcome.
     /*
 
      * 
